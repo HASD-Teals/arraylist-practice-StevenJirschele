@@ -49,10 +49,10 @@ public class ArrayListPractice {
 
         List<Integer> myList2 = new ArrayList<Integer>();
 
-        myList2.add(1);
-        myList2.add(2);
         myList2.add(3);
         myList2.add(2);
+        myList2.add(1);
+        myList2.add(6);
 
         System.out.println("\n");
         System.out.println(myList2);
@@ -105,12 +105,16 @@ public class ArrayListPractice {
         return myList;
     }
     public static List<Integer> minToFront(List<Integer> myList2) {
+        int temp = myList2.get(0);
+        int index = 0;
         for(int i = 0; i < myList2.size(); i++) {
-            if(myList2.get(i) > myList2.get(i + 1)) {
-                myList2.remove(i);
-                myList2.set(0, i);
+            if(myList2.get(i) < temp) {
+                temp = myList2.get(i);
+                index = i;
             }
         }
+        myList2.remove(index);
+        myList2.add(0, temp);
         return myList2;
     }
 }
